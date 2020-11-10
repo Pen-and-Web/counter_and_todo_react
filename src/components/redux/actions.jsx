@@ -1,5 +1,3 @@
-import React from "react";
-
 export const increment = () => {
   return {
     type: "INCREMENT"
@@ -17,12 +15,23 @@ export const reset = () => {
     type: "RESET"
   };
 };
-export const addTodo = (title, des) => {
+
+export const addTodo = (id, title, des) => {
   return {
     type: "ADD_TODO",
     payload: {
+      id: id,
       title: title,
-      des: des
+      description: des
+    }
+  };
+};
+
+export const removeTodo = id => {
+  return {
+    type: "REMOVE_TODO",
+    payload: {
+      id: id
     }
   };
 };

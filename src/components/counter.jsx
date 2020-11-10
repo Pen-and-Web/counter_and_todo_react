@@ -28,7 +28,16 @@ const Counter = () => {
     );
   };
   return (
-    <div className="container ">
+    <div
+      className={`container bg-light border rounded-lg p-2 ${
+        updatedState.counter > 0
+          ? "border-success"
+          : updatedState.counter === 0
+          ? "border-danger"
+          : "border-primary"
+      }`}
+    >
+      <h5 className="bg-info p-2 text-white"> Sample Counter Using Redux </h5>
       <div
         className={`d-flex justify-content-center alert ${
           updatedState.counter > 0
@@ -39,15 +48,19 @@ const Counter = () => {
         }`}
         role="alert"
       >
-        <h1>{updatedState.counter}</h1>
+        <h3>{updatedState.counter}</h3>
       </div>
       <div className="d-flex justify-content-center">
-        <Button type="button" className="btn btn-success" onClick={handleAdd}>
+        <Button
+          type="button"
+          className="btn btn-success mr-2"
+          onClick={handleAdd}
+        >
           Add
         </Button>
         <Button
           type="button"
-          className="btn btn-primary"
+          className="btn btn-primary mr-2"
           onClick={handleSubstract}
         >
           Subtract
